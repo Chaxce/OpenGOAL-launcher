@@ -82,7 +82,8 @@
   <div class="flex flex-col mt-auto ml-auto">
     <div class="flex flex-col gap-2 w-[320px]">
       <Button
-        class="font-semibold text-gray-200 h-12 text-3xl border-solid border border-[#1e3a66] rounded bg-[#13294b] hover:bg-[#183763] hover:border-[#2a4a7c] hover:text-white"
+        class="play-custom font-semibold h-12 text-3xl"
+        style="border-radius: 20px; border: none; letter-spacing: 0.12em; color: #dcf1fc; background: linear-gradient(135deg, #155f7d 0%, #2aa4cc 50%, #155f7d 100%); box-shadow: inset 0 3px 0 rgba(255,255,255,0.2), 0 2px 8px rgba(26,74,138,0.4); overflow: hidden; transition: transform 0.3s, filter 0.3s;"
         onclick={async () => {
           launchGame(activeGame, false);
         }}>{$_("gameControls_button_play")}</Button
@@ -270,3 +271,8 @@
     </div>
   </div>
 </div>
+
+<style>
+  :global(.play-custom):hover { transform: scale(1.025); filter: brightness(1.05); }
+  :global(.play-custom):active { transform: scale(0.97); }
+</style>

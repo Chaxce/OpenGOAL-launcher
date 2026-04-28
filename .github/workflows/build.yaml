@@ -80,3 +80,10 @@ jobs:
         with:
           name: AppImage Bundle
           path: ./src-tauri/target/release/bundle/appimage/*.AppImage
+
+      - name: Upload windows bundle
+        if: matrix.platform == 'windows-latest'
+        uses: actions/upload-artifact@v7
+        with:
+           name: Windows Bundle
+           path: ./src-tauri/target/release/bundle/nsis/*.exe

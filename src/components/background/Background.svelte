@@ -3,8 +3,8 @@
   import { onDestroy, onMount } from "svelte";
   import { listen, type UnlistenFn } from "@tauri-apps/api/event";
   import { getFurthestGameMilestone } from "$lib/rpc/game";
-  import jak2Background from "$assets/images/background-jak2.webp";
-  import jak3Background from "$assets/images/background-jak3.webp";
+  import jak2Background from "$assets/images/J2-BG.png";
+  import jak3Background from "$assets/images/J3-BG.png";
   import coverArtPlaceholder from "$assets/images/mod-coverart-placeholder.webp";
   import { getLocalModThumbnailBase64 } from "$lib/rpc/features";
   import { appDataDir, join } from "@tauri-apps/api/path";

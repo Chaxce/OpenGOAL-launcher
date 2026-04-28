@@ -85,6 +85,9 @@
   });
 
   async function updateBackground(activeGame: SupportedGame): Promise<void> {
+    bgVideo = null;
+    jak1Background = undefined;
+
     isInstalled = await isGameInstalled(activeGame);
 
     const appDataDirPath = await appDataDir();
@@ -154,19 +157,33 @@
       <!-- svelte-ignore a11y_missing_attribute -->
       <img class={style} src={jak1Background} />
     {/if}
- {:else if activeGame === "jak2"}
-  {#if bgVideo}
-    <video class={style} class:grayscale={!isInstalled} src={bgVideo} autoplay muted loop></video>
-  {:else}
-    <!-- svelte-ignore a11y_missing_attribute -->
-    <img class={style} src={jak1Background ?? jak2Background} />
-  {/if}
-{:else if activeGame === "jak3"}
-  {#if bgVideo}
-    <video class={style} class:grayscale={!isInstalled} src={bgVideo} autoplay muted loop></video>
-  {:else}
-    <!-- svelte-ignore a11y_missing_attribute -->
-    <img class={style} src={jak1Background ?? jak3Background} />
-  {/if}
+  {:else if activeGame === "jak2"}
+    {#if bgVideo}
+      <video
+        class={style}
+        class:grayscale={!isInstalled}
+        src={bgVideo}
+        autoplay
+        muted
+        loop
+      ></video>
+    {:else}
+      <!-- svelte-ignore a11y_missing_attribute -->
+      <img class={style} src={jak1Background ?? jak2Background} />
+    {/if}
+  {:else if activeGame === "jak3"}
+    {#if bgVideo}
+      <video
+        class={style}
+        class:grayscale={!isInstalled}
+        src={bgVideo}
+        autoplay
+        muted
+        loop
+      ></video>
+    {:else}
+      <!-- svelte-ignore a11y_missing_attribute -->
+      <img class={style} src={jak1Background ?? jak3Background} />
+    {/if}
   {/if}
 {/if}

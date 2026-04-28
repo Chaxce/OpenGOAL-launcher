@@ -91,7 +91,7 @@
     const filePath = await join(
       appDataDirPath,
       "backgrounds",
-      `${activeGame}.mp4`,
+      `${activeGame}.png`,
     );
     if (await exists(filePath)) {
       bgVideo = convertFileSrc(filePath);

@@ -5,7 +5,6 @@
   import { route } from "../router";
   import { toSupportedGame } from "$lib/rpc/bindings/utils/SupportedGame";
   import type { SupportedGame } from "$lib/rpc/bindings/SupportedGame.ts";
-  import GameBetaAlert from "../components/games/GameBetaAlert.svelte";
   import { isInDebugMode } from "$lib/utils/common";
 
   const activeGame: SupportedGame | undefined = $derived(
@@ -20,7 +19,6 @@
     <!-- Jak 2 & Jak 3 BETA warning -->
     <!-- Not shown on mod pages because mod bugs shouldn't be reported to the jak-projects repo -->
     {#if (activeGame === "jak2" || activeGame === "jak3") && !modName && !isInDebugMode()}
-      <GameBetaAlert {activeGame}></GameBetaAlert>
     {/if}
     {#if modName && modSource}
       <GameControlsMod {activeGame} {modName} {modSource} />

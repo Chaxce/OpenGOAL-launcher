@@ -83,14 +83,14 @@
     <div class="flex flex-col gap-2 w-[320px]">
       <Button
         class="play-custom font-semibold h-12 text-3xl"
-        style="border-radius: 20px; border: none; letter-spacing: 0.12em; color: #dcf1fc; background: linear-gradient(135deg, #155f7d 0%, #2aa4cc 50%, #155f7d 100%); box-shadow: inset 0 3px 0 rgba(255,255,255,0.2), 0 2px 8px rgba(26,74,138,0.4); overflow: hidden; transition: transform 0.3s, filter 0.3s;"
+        style="border-radius: 20px; border: none; letter-spacing: 0.12em; color: #fff5e0; background: linear-gradient(135deg, #7d2d00 0%, #e85d00 35%, #ffb300 60%, #e85d00 80%, #7d2d00 100%); box-shadow: inset 0 3px 0 rgba(255,230,100,0.2), 0 0 20px rgba(255,120,0,0.6), 0 2px 10px rgba(125,45,0,0.5); overflow: hidden; transition: transform 0.3s, filter 0.3s;"
         onclick={async () => {
           launchGame(activeGame, false);
         }}>{$_("gameControls_button_play")}</Button
       >
       <div class="grid grid-cols-[1fr_1fr_40px] gap-2">
         <Button
-          class="font-medium text-gray-200 h-10 text-center focus:ring-0 focus:outline-none border-solid border border-[#2a2a2a] rounded bg-[#0b0b0b] hover:bg-[#141414] hover:border-[#3a3a3a] hover:text-white"
+          class="font-medium text-gray-200 h-10 text-center focus:ring-0 focus:outline-none border-solid border border-[#2a2a2a] rounded-2xl bg-[#0b0b0b] hover:bg-[#141414] hover:border-[#3a3a3a] hover:text-white"
           >{$_("gameControls_button_features")}</Button
         >
         <Dropdown
@@ -121,7 +121,7 @@
           </DropdownItem>
         </Dropdown>
         <Button
-          class="font-medium text-gray-200 h-10 text-center focus:ring-0 focus:outline-none border-solid border border-[#2a2a2a] rounded bg-[#0b0b0b] hover:bg-[#141414] hover:border-[#3a3a3a] hover:text-white"
+          class="font-medium text-gray-200 h-10 text-center focus:ring-0 focus:outline-none border-solid border border-[#2a2a2a] rounded-2xl bg-[#0b0b0b] hover:bg-[#141414] hover:border-[#3a3a3a] hover:text-white"
         >
           {$_("gameControls_button_advanced")}
         </Button>
@@ -197,7 +197,7 @@
           >
         </Dropdown>
         <Button
-          class="text-gray-200 h-10 w-10 p-0 focus:ring-0 focus:outline-none border-solid border border-[#2a2a2a] rounded bg-[#0b0b0b] hover:bg-[#141414] hover:border-[#3a3a3a] hover:text-white"
+          class="text-gray-200 h-10 w-10 p-0 focus:ring-0 focus:outline-none border-solid border border-[#2a2a2a] rounded-2xl bg-[#0b0b0b] hover:bg-[#141414] hover:border-[#3a3a3a] hover:text-white"
         >
           <IconCog />
         </Button>

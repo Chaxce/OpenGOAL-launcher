@@ -3,8 +3,8 @@
   import { onDestroy, onMount } from "svelte";
   import { listen, type UnlistenFn } from "@tauri-apps/api/event";
   import { getFurthestGameMilestone } from "$lib/rpc/game";
-  import jak2Background from "$assets/images/J2 BG.png";
-  import jak3Background from "$assets/images/J3 BG.png";
+  import jak2Background from "$assets/images/background-jak2.webp";
+  import jak3Background from "$assets/images/background-jak3.webp";
   import coverArtPlaceholder from "$assets/images/mod-coverart-placeholder.webp";
   import { getLocalModThumbnailBase64 } from "$lib/rpc/features";
   import { appDataDir, join } from "@tauri-apps/api/path";
@@ -88,19 +88,20 @@
     isInstalled = await isGameInstalled(activeGame);
 
     const appDataDirPath = await appDataDir();
-    const filePath = await join(
-      appDataDirPath,
-      "backgrounds",
-      `${activeGame}.png`,
-    );
-    if (await exists(filePath)) {
-      bgVideo = convertFileSrc(filePath);
+    const mp4Path = await join(appDataDirPath, "backgrounds", `${activeGame}.mp4`);
+    const pngPath = await join(appDataDirPath, "backgrounds", `${activeGame}.png`);
+
+    if (await exists(mp4Path)) {
+      bgVideo = convertFileSrc(mp4Path);
+    } else if (await exists(pngPath)) {
+      jak1Background = convertFileSrc(pngPath);
+    } else {
+      // TODO - call this when the game is closed
+      const milestoneImage = await getFurthestGameMilestone(activeGame);
+      jak1Background = `/images/${activeGame}/${milestoneImage}.jpg`;
+      // TODO - do jak 2 milestones
     }
 
-    // TODO - call this when the game is closed
-    const milestoneImage = await getFurthestGameMilestone(activeGame);
-    jak1Background = ` src/assets/images/J1 BG.png`;
-    // TODO - do jak 2 milestones
     loading = false;
   }
 
